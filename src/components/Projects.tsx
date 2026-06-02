@@ -147,15 +147,15 @@ export function Projects() {
       <section
         id="projects"
         ref={sectionRef as React.RefObject<HTMLElement>}
-        className="font-body section section-alt"
+        className="font-body section section-alt scroll-mt-24"
       >
         <div className="container-narrow">
           <span className="section-label font-body tracking-widest uppercase text-xs font-medium">Portfolio</span>
           <h2 className="font-display section-title section-title-center mt-2 text-[clamp(2rem,5vw,3.25rem)] leading-none">
-            Selected work
+            My Projects
           </h2>
           <p className="font-body section-intro mt-4 font-light">
-            A selection of recent projects across web development, mobile apps, and design. Each one involved full ownership from concept to delivery.
+            All of my projects I have worked on, from web apps and so on.
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-2">

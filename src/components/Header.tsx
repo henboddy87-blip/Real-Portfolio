@@ -5,12 +5,11 @@ import { useTheme } from '../hooks/useTheme'
 const siteName = 'Hoeun Sophanut'
 
 const navLinks = [
+  { href: '#hero',         label: 'Home' },
   { href: '#about',        label: 'About' },
-  { href: '#experience',   label: 'Experience' },
-  { href: '#skills',       label: 'Skills' },
   { href: '#projects',     label: 'Projects' },
-  { href: '#services',     label: 'Services' },
-  { href: '#testimonials', label: 'Testimonials' },
+  { href: '#skills',       label: 'Skills' },
+  { href: '#experience',   label: 'Experience' },
   { href: '#contact',      label: 'Contact' },
 ]
 // ─────────────────────────────────────────────────────────────────────────────
@@ -31,9 +30,15 @@ export function Header() {
     const sections = navLinks.map((l) => l.href.slice(1))
     const onScroll = () => {
       const y = window.scrollY + 120
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i])
-        if (el && el.offsetTop <= y) { setActiveSection(sections[i]); return }
+      // Sort sections by their actual DOM position (offsetTop) so the
+      // closest section from the top of the viewport is detected correctly
+      const sorted = [...sections]
+        .map((id) => ({ id, el: document.getElementById(id) }))
+        .filter((x): x is { id: string; el: HTMLElement } => x.el !== null)
+        .sort((a, b) => a.el.offsetTop - b.el.offsetTop)
+
+      for (let i = sorted.length - 1; i >= 0; i--) {
+        if (sorted[i].el.offsetTop <= y) { setActiveSection(sorted[i].id); return }
       }
       setActiveSection('')
     }
@@ -60,28 +65,22 @@ export function Header() {
         id="header"
         className={`font-body fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-3' : 'py-4'}`}
       >
-        <div className="container-narrow flex h-14 items-center justify-between md:h-16">
+        <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between px-6 md:h-16 md:px-10 lg:px-16">
           {/* Logo */}
           <a
             href="#hero"
             className="relative z-10 flex items-center gap-2 font-display text-2xl leading-none text-zinc-900 dark:text-white"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent font-display text-lg text-white shadow-lg shadow-accent/30">
-              P
-            </span>
+            
             <span className="hidden sm:inline tracking-wide">{siteName}</span>
           </a>
 
           {/* Desktop nav */}
           <nav
-            className={`absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:block ${scrolled ? 'top-1/2' : ''}`}
+            className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:block"
             aria-label="Main"
           >
-            <ul
-              className={`flex items-center gap-1 rounded-2xl border bg-white/80 px-2 py-1.5 shadow-lg shadow-black/5 backdrop-blur-xl dark:border-zinc-700 dark:bg-zinc-900/80 dark:shadow-black/20 ${
-                scrolled ? 'border-zinc-200/80 ring-1 ring-zinc-200/50 dark:ring-zinc-700/50' : 'border-white/20'
-              }`}
-            >
+            <ul className="flex items-center gap-8 lg:gap-10">
               {navLinks.map(({ href, label }) => {
                 const id = href.slice(1)
                 const isActive = activeSection === id
@@ -90,16 +89,13 @@ export function Header() {
                     <a
                       href={href}
                       onClick={handleNavClick}
-                      className={`font-body relative rounded-xl px-4 py-2.5 text-sm font-medium tracking-wide transition-colors ${
+                      className={`font-body relative text-sm font-medium tracking-wide transition-colors duration-300 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:rounded-full after:bg-accent after:transition-all after:duration-300 hover:after:w-full ${
                         isActive
-                          ? 'text-accent dark:text-accent-light'
+                          ? 'text-accent dark:text-accent-light after:w-full'
                           : 'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white'
                       }`}
                     >
-                      {isActive && (
-                        <span className="absolute inset-0 rounded-xl bg-accent/10 dark:bg-accent/20" aria-hidden />
-                      )}
-                      <span className="relative">{label}</span>
+                      {label}
                     </a>
                   </li>
                 )

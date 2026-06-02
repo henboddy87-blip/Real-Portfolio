@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import { useInView } from '../hooks/useInView'
 import { SubmitAlert } from './SubmitAlert'
+import { Mail, Phone, MapPin } from 'lucide-react'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
-const contactEmail       = 'peter@gamil.com'
+const contactEmail       = 'phannut017@gmail.com'
 const contactPhone       = '+855 (097) 567-890'
 const contactLocation    = 'Phnom Penh City, Cambodia'
-const contactResponseNote = "I typically respond within 24 hours. For urgent inquiries, mention 'Urgent' in the subject."
 const socialLinks = [
   { label: 'LinkedIn', href: 'https://linkedin.com', aria: 'LinkedIn' },
   { label: 'GitHub',   href: 'https://github.com',   aria: 'GitHub' },
-  { label: 'Twitter',  href: 'https://twitter.com',  aria: 'Twitter' },
-  { label: 'Telgram', href: 'https://dribbble.com', aria: 'Telegram' },
+  { label: 'Facebook',  href: 'https://facebook.com',  aria: 'Facebook' },
+  { label: 'Telegram', href: 'https://telegram.com', aria: 'Telegram' },
 ]
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -53,7 +53,7 @@ export function Contact() {
       <section
         id="contact"
         ref={sectionRef as React.RefObject<HTMLElement>}
-        className="font-body section section-alt"
+        className="font-body section section-alt scroll-mt-24"
       >
         <div className="container-narrow">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 lg:items-start">
@@ -66,21 +66,17 @@ export function Contact() {
               <p className="font-body mt-6 text-base font-light leading-relaxed text-zinc-600 dark:text-zinc-400">
                 Have a project in mind or want to chat? Drop a message and I'll get back within 24 hours.
               </p>
-              <div className="mt-4 rounded-2xl border border-accent/20 bg-accent/5 p-4 dark:border-accent/30 dark:bg-accent/10">
-                <p className="font-body text-sm font-light text-zinc-700 dark:text-zinc-300">
-                  {contactResponseNote}
-                </p>
-              </div>
+              
 
               <ul className="mt-10 space-y-6">
                 {[
-                  { icon: '✉', label: 'Email', value: contactEmail, href: `mailto:${contactEmail}`, isLink: true },
-                  { icon: '📞', label: 'Phone', value: contactPhone, href: `tel:${contactPhone.replace(/\s/g, '')}`, isLink: true },
-                  { icon: '📍', label: 'Location', value: contactLocation, href: null, isLink: false },
+                  { icon: Mail, label: 'Email', value: contactEmail, href: `mailto:${contactEmail}`, isLink: true },
+                  { icon: Phone, label: 'Phone', value: contactPhone, href: `tel:${contactPhone.replace(/\s/g, '')}`, isLink: true },
+                  { icon: MapPin, label: 'Location', value: contactLocation, href: null, isLink: false },
                 ].map((item) => (
                   <li key={item.label} className="flex items-start gap-4 rounded-2xl border border-zinc-200/80 bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900/50">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/15 text-accent dark:bg-accent/20">
-                      {item.icon}
+                      <item.icon size={18} />
                     </span>
                     <div>
                       <span className="font-body text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
@@ -138,8 +134,8 @@ export function Contact() {
                 <div className="mt-6 space-y-5">
                   {[
                     { id: 'name',    label: 'Name',    type: 'text',  placeholder: 'Your name',          required: true },
-                    { id: 'email',   label: 'Email',   type: 'email', placeholder: 'you@example.com',    required: true },
-                    { id: 'subject', label: 'Subject', type: 'text',  placeholder: 'Project or inquiry', required: false },
+                    { id: 'email',   label: 'Email',   type: 'email', placeholder: 'Your email',    required: true },
+                    { id: 'subject', label: 'Subject', type: 'text',  placeholder: 'Project or something else', required: false },
                   ].map((field) => (
                     <div key={field.id}>
                       <label htmlFor={field.id} className="font-body mb-1.5 block text-sm font-medium text-zinc-900 dark:text-white">
@@ -164,7 +160,7 @@ export function Contact() {
                       name="message"
                       rows={5}
                       required
-                      placeholder="Tell me about your project, timeline, and goals..."
+                      placeholder="Tell me about your project, what you want to do here"
                       className="input font-body min-h-[140px] resize-y"
                     />
                   </div>

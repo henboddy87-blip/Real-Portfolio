@@ -1,18 +1,19 @@
 import { useInView } from '../hooks/useInView'
+import { MapPin, Check } from 'lucide-react'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 const aboutHeadline  = 'I turn ideas into digital reality'
-const aboutHighlight = 'digital reality'
+
 const aboutParagraphs = [
-  "I'm a passionate creator with a focus on clean code, thoughtful design, and user-centered experiences. With over five years in the industry, I've helped startups and enterprises build products that users love and businesses rely on.",
-  "From concept and wireframes to implementation and launch, I bring projects to life with attention to detail, clear communication, and a drive for excellence. I believe great digital products come from the intersection of design, technology, and empathy.",
-  "When I'm not coding or designing, you'll find me exploring new tools, contributing to open source, writing about frontend and UX, or sharing knowledge with the community at meetups and conferences.",
+  "I'm an ITE student at Royal University of Phnom Penh, passionate about Web Development, Data speccialist, and AI Field, Building new real-world projects base on transformation of technology and AI generation.",
+  "Building for overall what people really need, to fullfill the business goals and users needs.",
+  "When I'm not coding or designing, I lvoe exploring the latest tech trends, AI tool for building software and system, as lifelong learner, I'm always seeking new knowledge and skills to stay at the forefront of the industry.",
 ]
 const aboutHighlights = [
-  { text: 'Based in Phnom Penh City',          icon: '📍' },
-  { text: 'Available for freelance & contracts', icon: '✓' },
-  { text: 'Open to full-time remote roles',      icon: '✓' },
-  { text: 'Response within 24 hours',            icon: '✓' },
+  { text: 'Based in Phnom Penh City',          icon: MapPin },
+  { text: 'Available for freelance & contracts', icon: Check },
+  { text: 'Open to full-time remote roles',      icon: Check },
+  { text: 'Response within 24 hours',            icon: Check },
 ]
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -30,7 +31,7 @@ export function About() {
       <section
         id="about"
         ref={sectionRef as React.RefObject<HTMLElement>}
-        className="font-body section section-alt"
+        className="font-body section section-alt scroll-mt-24"
       >
         <div className="container-narrow">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
@@ -44,7 +45,7 @@ export function About() {
                     className="aspect-[3/4] w-full object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-4 -right-4 h-24 w-24 rounded-2xl bg-accent/20 dark:bg-accent/30" aria-hidden />
+                
               </div>
             </div>
 
@@ -52,8 +53,7 @@ export function About() {
             <div className={`transition-all duration-700 delay-150 ${inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
               <span className="section-label font-body tracking-widest uppercase text-xs font-medium">About Me</span>
               <h2 className="font-display section-title mt-2 text-[clamp(2rem,5vw,3.25rem)] leading-none">
-                {aboutHeadline.split(aboutHighlight)[0]}
-                <em className="not-italic text-accent">{aboutHighlight}</em>
+                {aboutHeadline}
               </h2>
 
               <div className="mt-8 space-y-5">
@@ -70,7 +70,7 @@ export function About() {
                     key={item.text}
                     className="font-body flex items-center gap-3 rounded-xl bg-white/80 px-4 py-3 text-sm font-medium text-zinc-700 shadow-card dark:bg-zinc-900/80 dark:text-zinc-300 dark:shadow-card-dark"
                   >
-                    <span className="text-accent" aria-hidden>{item.icon}</span>
+                    <span className="text-accent" aria-hidden><item.icon size={16} /></span>
                     {item.text}
                   </li>
                 ))}

@@ -1,63 +1,30 @@
 import { useInView } from '../hooks/useInView'
 
-// ─── Types ───────────────────────────────────────────────────────────────────
-export interface Skill {
-  id: string
-  title: string
-  description: string
-  longDescription: string
-  image: string
-  alt: string
-  tags: string[]
-  experience?: string
-}
-// ─────────────────────────────────────────────────────────────────────────────
-
 // ─── Data ────────────────────────────────────────────────────────────────────
-const skills: Skill[] = [
+const skillGroups: { category: string; items: { name: string; level: number }[] }[] = [
   {
-    id: 'frontend',
-    title: 'Frontend',
-    description: 'React, Vue, HTML/CSS, TypeScript, Tailwind',
-    longDescription: 'I build responsive, accessible interfaces with modern frameworks and a strong focus on performance and UX. From static sites to complex SPAs.',
-    image: 'https://codedamn.com/assets/images/learnpaths/og/frontend.png',
-    alt: 'Frontend development — code and browser',
-    tags: ['React', 'TypeScript', 'Vue', 'HTML/CSS', 'Tailwind', 'Next.js'],
-    experience: '5+ years',
+    category: 'Languages & Frameworks',
+    items: [
+      { name: 'JavaScript / TypeScript', level: 90 },
+      { name: 'React / Next.js',         level: 90 },
+      { name: 'Python / FastAPI',        level: 75 },
+    ],
   },
   {
-    id: 'backend',
-    title: 'Backend',
-    description: 'Node.js, Python, FastAPI, PostgreSQL',
-    longDescription: 'APIs, databases, and server logic. I design and implement backends that are secure, scalable, and well-documented.',
-    image: 'https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fexhdwvs8rnju2cniz8oe.png',
-    alt: 'Backend development — server and database',
-    tags: ['Node.js', 'Python', 'FastAPI', 'PostgreSQL', 'REST', 'GraphQL'],
-    experience: '4+ years',
-  },
-  {
-    id: 'design',
-    title: 'Design',
-    description: 'Figma, UI/UX, Prototyping, Design Systems',
-    longDescription: 'User research, wireframes, and high-fidelity design. I create systems that scale and interfaces that users enjoy.',
-    image: 'https://cdn.dribbble.com/userupload/18401476/file/original-3c7347728a90f9bcc68c48f1c8ea284d.jpg?format=webp&resize=400x300&vertical=center',
-    alt: 'UI/UX design and prototyping',
-    tags: ['Figma', 'UI/UX', 'Prototyping', 'Design Systems'],
-    experience: '4+ years',
-  },
-  {
-    id: 'tools',
-    title: 'Tools & DevOps',
-    description: 'Git, Docker, CI/CD, Agile',
-    longDescription: 'Version control, containerization, and CI/CD pipelines. I keep projects organized and deployments smooth.',
-    image: 'https://miro.medium.com/1*_eJaw96xLBR-xEzlwbTOyw.png',
-    alt: 'DevOps and development tools',
-    tags: ['Git', 'Docker', 'CI/CD', 'Agile', 'Vercel', 'AWS'],
-    experience: '4+ years',
+    category: 'Design & Tools',
+    items: [
+      { name: 'HTML / CSS / Tailwind', level: 95 },
+      { name: 'Figma / UI/UX',         level: 80 },
+      { name: 'MySQL',  level: 75 },
+      { name: 'Github',           level: 85 },
+    ],
   },
 ]
 
-const skillTags = ['JavaScript', 'TypeScript', 'React', 'Python', 'FastAPI', 'Figma', 'CSS', 'Node.js', 'PostgreSQL', 'Tailwind']
+const skillTags = [
+  'JavaScript', 'TypeScript', 'React', 'Python', 'FastAPI',
+  'Figma', 'CSS', 'Tailwind',
+]
 // ─────────────────────────────────────────────────────────────────────────────
 
 export function Skills() {
@@ -74,7 +41,7 @@ export function Skills() {
       <section
         id="skills"
         ref={sectionRef as React.RefObject<HTMLElement>}
-        className="font-body section"
+        className="font-body section scroll-mt-24"
       >
         <div className="container-narrow">
           <span className="section-label font-body tracking-widest uppercase text-xs font-medium">Skills</span>
@@ -82,57 +49,52 @@ export function Skills() {
             What I work with
           </h2>
           <p className="font-body section-intro mt-4 font-light">
-            I combine frontend, backend, design, and tooling to ship full products. Each area is backed by real project experience and continuous learning.
+            I combine frontend, backend, design, and tooling to ship full products.
           </p>
 
-          <div
-            className={`mt-16 grid gap-6 transition-all duration-700 md:grid-cols-2 lg:grid-cols-4 ${inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
-          >
-            {skills.map((skill, i) => (
-              <article
-                key={skill.id}
-                className="card card-hover group flex flex-col overflow-hidden"
-                style={{ transitionDelay: `${i * 80}ms` }}
-              >
-                <div className="relative aspect-[4/3] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
-                  <img
-                    src={skill.image}
-                    alt={skill.alt}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between p-4">
-                    <span className="font-display text-xl leading-none text-white drop-shadow-lg">
-                      {skill.title}
-                    </span>
-                    {skill.experience && (
-                      <span className="font-body rounded-full bg-white/20 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm">
-                        {skill.experience}
-                      </span>
-                    )}
-                  </div>
+          {/* Skill groups with progress bars */}
+          <div className={`mt-16 grid gap-10 transition-all duration-700 md:grid-cols-2 md:gap-16 ${inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+            {skillGroups.map((group) => (
+              <div key={group.category}>
+                <h3 className="font-display mb-6 text-lg leading-none text-zinc-900 dark:text-white">
+                  {group.category}
+                </h3>
+                <div className="space-y-5">
+                  {group.items.map((item, i) => (
+                    <div key={item.name} style={{ transitionDelay: `${i * 80}ms` }}>
+                      <div className="mb-1.5 flex items-center justify-between">
+                        <span className="font-body text-sm font-medium text-zinc-800 dark:text-zinc-200">
+                          {item.name}
+                        </span>
+                        <span className="font-body text-xs font-semibold text-accent">
+                          {item.level}%
+                        </span>
+                      </div>
+                      <div className="h-2 overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-700">
+                        <div
+                          className="h-full rounded-full bg-gradient-to-r from-accent to-accent-light transition-all duration-1000 ease-out"
+                          style={{
+                            width: inView ? `${item.level}%` : '0%',
+                            transitionDelay: `${i * 100}ms`,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <p className="font-body text-sm font-light leading-relaxed text-zinc-600 dark:text-zinc-400">
-                    {skill.longDescription}
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {skill.tags.map((tag) => (
-                      <span key={tag} className="tag font-body text-xs">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </article>
+              </div>
             ))}
           </div>
 
+          {/* Tags */}
           <div
-            className={`mt-14 flex flex-wrap justify-center gap-2 transition-all duration-700 delay-200 ${inView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}
+            className={`mt-16 flex flex-wrap justify-center gap-2 transition-all duration-700 delay-200 ${inView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}
           >
             {skillTags.map((tag) => (
-              <span key={tag} className="tag font-body text-xs">
+              <span
+                key={tag}
+                className="font-body rounded-full border border-zinc-200 px-4 py-1.5 text-xs font-medium text-zinc-600 transition hover:border-accent hover:text-accent dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-accent dark:hover:text-accent"
+              >
                 {tag}
               </span>
             ))}
