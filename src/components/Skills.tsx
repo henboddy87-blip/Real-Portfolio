@@ -1,81 +1,100 @@
 import { useInView } from '../hooks/useInView'
+import { Code, Database, Layout, Sparkles } from 'lucide-react'
 
-// ─── Data ────────────────────────────────────────────────────────────────────
-const skillGroups: { category: string; items: { name: string; level: number }[] }[] = [
+const skillCategories = [
   {
-    category: 'Languages & Frameworks',
+    title: 'Frontend & UI Engineering',
+    icon: Layout,
     items: [
-      { name: 'JavaScript / TypeScript', level: 90 },
-      { name: 'React / Next.js',         level: 90 },
-      { name: 'Python / FastAPI',        level: 75 },
+      { name: 'React / Next.js', level: 92 },
+      { name: 'TypeScript / JavaScript', level: 90 },
+      { name: 'Tailwind CSS / HTML5', level: 95 },
+     
     ],
   },
   {
-    category: 'Design & Tools',
+    title: 'Backend & Systems',
+    icon: Database,
     items: [
-      { name: 'HTML / CSS / Tailwind', level: 95 },
-      { name: 'Figma / UI/UX',         level: 80 },
-      { name: 'MySQL',  level: 75 },
-      { name: 'Github',           level: 85 },
+      { name: 'Python / FastAPI', level: 82 },
+      { name: 'MySQL & PostgreSQL', level: 80 },
+      { name: 'REST APIs & Cloud Deployment', level: 88 },
     ],
   },
 ]
 
-const skillTags = [
-  'JavaScript', 'TypeScript', 'React', 'Python', 'FastAPI',
-  'Figma', 'CSS', 'Tailwind',
+const quickTags = [
+  'JavaScript (ES6+)',
+  'TypeScript',
+  'React',
+  'Next.js',
+  'Python',
+  'FastAPI',
+  'Node.js',
+  'MySQL',
+  'PostgreSQL',
+  'Tailwind CSS',
+  'Git / GitHub',
+  'REST APIs',
+  'AI Integration',
 ]
-// ─────────────────────────────────────────────────────────────────────────────
 
 export function Skills() {
   const { ref: sectionRef, inView } = useInView()
 
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
-        .font-display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; }
-        .font-body    { font-family: 'DM Sans', sans-serif; }
-      `}</style>
-
-      <section
-        id="skills"
-        ref={sectionRef as React.RefObject<HTMLElement>}
-        className="font-body section scroll-mt-24"
-      >
-        <div className="container-narrow">
-          <span className="section-label font-body tracking-widest uppercase text-xs font-medium">Skills</span>
-          <h2 className="font-display section-title section-title-center mt-2 text-[clamp(2rem,5vw,3.25rem)] leading-none">
-            What I work with
+    <section
+      id="skills"
+      ref={sectionRef as React.RefObject<HTMLElement>}
+      className="section relative bg-white dark:bg-[#0B1710]"
+    >
+      <div className="container-custom">
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2.5">
+            <span className="h-0.5 w-6 bg-[#ffaa00]" />
+            <span className="font-display text-sm font-extrabold tracking-widest uppercase text-forest-900 dark:text-[#ffaa00]">
+              Core Stack
+            </span>
+          </div>
+          <h2 className="mt-3 font-display text-4xl sm:text-5xl md:text-6xl font-black text-forest-950 dark:text-white">
+            Technologies <span className="text-[#ffaa00]">& Capabilities</span>
           </h2>
-          <p className="font-body section-intro mt-4 font-light">
-            I combine frontend, backend, design, and tooling to ship full products.
+          <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg md:text-xl text-zinc-600 dark:text-zinc-300 font-normal">
+            A balanced combination of modern frontend performance, reliable backend logic, and user-centered design.
           </p>
+        </div>
 
-          {/* Skill groups with progress bars */}
-          <div className={`mt-16 grid gap-10 transition-all duration-700 md:grid-cols-2 md:gap-16 ${inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-            {skillGroups.map((group) => (
-              <div key={group.category}>
-                <h3 className="font-display mb-6 text-lg leading-none text-zinc-900 dark:text-white">
-                  {group.category}
-                </h3>
-                <div className="space-y-5">
-                  {group.items.map((item, i) => (
-                    <div key={item.name} style={{ transitionDelay: `${i * 80}ms` }}>
-                      <div className="mb-1.5 flex items-center justify-between">
-                        <span className="font-body text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                          {item.name}
-                        </span>
-                        <span className="font-body text-xs font-semibold text-accent">
-                          {item.level}%
-                        </span>
+        {/* Skill Category Cards */}
+        <div
+          className={`mt-16 grid gap-10 md:grid-cols-2 lg:gap-14 transition-all duration-700 ${
+            inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}
+        >
+          {skillCategories.map((cat, i) => {
+            return (
+              <div key={cat.title} className="card-styled p-8 sm:p-10">
+                <div className="flex items-center gap-4 border-b border-zinc-100 pb-5 dark:border-zinc-800">
+                  <div className='size-12'>
+                    <img className='w-full h-full object-cover' src="./image/frontend.png" alt="" />
+                  </div>
+                  <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-forest-950 dark:text-white">
+                    {cat.title}
+                  </h3>
+                </div>
+
+                <div className="mt-7 space-y-5">
+                  {cat.items.map((item, idx) => (
+                    <div key={item.name}>
+                      <div className="mb-2 flex items-center justify-between text-sm sm:text-base font-bold text-forest-950 dark:text-zinc-200">
+                        <span>{item.name}</span>
+                        <span className="text-[#ffaa00] font-black">{item.level}%</span>
                       </div>
-                      <div className="h-2 overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-700">
+                      <div className="h-2.5 w-full overflow-hidden rounded-full bg-zinc-100 dark:bg-forest-900">
                         <div
-                          className="h-full rounded-full bg-gradient-to-r from-accent to-accent-light transition-all duration-1000 ease-out"
+                          className="h-full rounded-full bg-gradient-to-r from-[#ffaa00] to-amber-500 transition-all duration-1000"
                           style={{
                             width: inView ? `${item.level}%` : '0%',
-                            transitionDelay: `${i * 100}ms`,
+                            transitionDelay: `${idx * 100}ms`,
                           }}
                         />
                       </div>
@@ -83,24 +102,22 @@ export function Skills() {
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Tags */}
-          <div
-            className={`mt-16 flex flex-wrap justify-center gap-2 transition-all duration-700 delay-200 ${inView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`}
-          >
-            {skillTags.map((tag) => (
-              <span
-                key={tag}
-                className="font-body rounded-full border border-zinc-200 px-4 py-1.5 text-xs font-medium text-zinc-600 transition hover:border-accent hover:text-accent dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-accent dark:hover:text-accent"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+            )
+          })}
         </div>
-      </section>
-    </>
+
+        {/* Quick Tag Pills */}
+        <div className="mt-14 flex flex-wrap justify-center gap-3 ">
+          {quickTags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border text-black dark:text-black dark:border-zinc-200/90 bg-white px-5 py-2.5 text-xs sm:text-sm font-bold text-zinc-700 shadow-sm transition hover:border-[#ffaa00] hover:text-[#ffaa00] dark:border-forest-900 dark:bg-forest-950/80 dark:text-zinc-300 dark:hover:border-[#ffaa00] dark:hover:text-[#ffaa00]"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }

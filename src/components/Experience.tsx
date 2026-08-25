@@ -1,155 +1,161 @@
+import React from 'react'
 import { useInView } from '../hooks/useInView'
-
-// ─── Types ───────────────────────────────────────────────────────────────────
-export type ExperienceKind = 'education' | 'work' | 'learning'
-
-export interface ExperienceItem {
-  id: string
-  kind: ExperienceKind
-  period: string
-  title: string
-  place: string
-  location: string
-  description: string
-  highlights: string[]
-}
-// ─────────────────────────────────────────────────────────────────────────────
-
-// ─── Data ────────────────────────────────────────────────────────────────────
-const experienceIntro = {
-  title: 'Experience & learning journey',
-  subtitle:
-    'From high school curiosity to professional work, here is how my path in design and development has evolved over time.',
-}
-
-const experienceTimeline: ExperienceItem[] = [
-  {
-    id: 'high-school',
-    kind: 'learning',
-    period: '2018 – 2024',
-    title: 'High school: first lines of code',
-    place: 'High School',
-    location: 'Banlung City',
-    description:
-      'Learning general knowledge base on school curriculum, I discovered some new technology release on internet.',
-    highlights: [
-      'Learn online via YouTube, Facebook, and forums',
-    
-    ],
-  },
-  {
-    id: 'university',
-    kind: 'education',
-    period: '2025 – 2028',
-    title: 'Bachelor in Information Technology Engineering',
-    place: 'State University',
-    location: 'Phnom Penh City',
-    description:
-      'Studied software engineering, algorithms, and human–computer web technologies, database, and more.',
-    highlights: [
-      'Specialized in web development and UI',
-      'Led a small team to build a ecommerce website for local business',
-      
-    ],
-  },
-  
-]
-// ─────────────────────────────────────────────────────────────────────────────
-
-const kindLabel: Record<ExperienceKind, string> = {
-  education: 'Education',
-  work: 'Work',
-  learning: 'Learning',
-}
-
-const kindColor: Record<ExperienceKind, string> = {
-  education: 'from-sky-400 to-blue-500',
-  work: 'from-emerald-400 to-emerald-500',
-  learning: 'from-amber-400 to-orange-500',
-}
+import { GraduationCap, Briefcase, Calendar, MapPin } from 'lucide-react'
 
 export function Experience() {
   const { ref: sectionRef, inView } = useInView()
 
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
-        .font-display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; }
-        .font-body    { font-family: 'DM Sans', sans-serif; }
-      `}</style>
+    <section
+      id="journey"
+      ref={sectionRef as React.RefObject<HTMLElement>}
+      className="section relative bg-zinc-50/70 dark:bg-[#08170F]"
+    >
+      <div className="container-custom">
+        {/* Section Header */}
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2.5">
+            <span className="h-0.5 w-6 bg-[#ffaa00]" />
+            <span className="font-display text-sm font-extrabold tracking-widest uppercase text-forest-900 dark:text-[#ffaa00]">
+              Education & Work
+            </span>
+          </div>
+          <h2 className="mt-3 font-display text-4xl sm:text-5xl md:text-6xl font-black text-forest-950 dark:text-white">
+            My <span className="text-[#ffaa00]">Academic and Professional</span> Journey
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg md:text-xl font-normal text-zinc-600 dark:text-zinc-300">
+            From early self-taught programming to university engineering and building real-world client systems.
+          </p>
+        </div>
 
-      <section
-        id="experience"
-        ref={sectionRef as React.RefObject<HTMLElement>}
-        className="font-body section scroll-mt-24"
-      >
-        <div className="container-wide">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="section-label font-body tracking-widest uppercase text-xs font-medium">Experience</span>
-            <h2 className="font-display section-title mt-2 text-[clamp(2rem,5vw,3.25rem)] leading-none text-balance">
-              {experienceIntro.title}
-            </h2>
-            <p className="font-body section-intro mt-4 font-light text-balance">
-              {experienceIntro.subtitle}
-            </p>
+        {/* Two Columns Grid matching Image 3 */}
+        <div
+          className={`mt-16 grid gap-10 md:grid-cols-2 lg:gap-14 transition-all duration-700 ${
+            inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}
+        >
+          {/* Column 1: Education Card */}
+          <div className="card-styled flex flex-col justify-between p-8 sm:p-10">
+            <div>
+              {/* Header with Amber Round Icon */}
+              <div className="flex items-center gap-4 border-b border-zinc-100 pb-6 dark:border-zinc-800">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#ffaa00] text-forest-950 shadow-md">
+                  <GraduationCap size={28} strokeWidth={2.3} />
+                </div>
+                <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-forest-950 dark:text-white">
+                  Education
+                </h3>
+              </div>
+
+              {/* Education Timeline Items */}
+              <div className="mt-8 space-y-9">
+                {/* Item 1 */}
+                <div className="relative pl-7 before:absolute before:left-0 before:top-2 before:h-3 before:w-3 before:rounded-full before:bg-[#ffaa00] before:ring-4 before:ring-[#ffaa00]/25">
+                  <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-zinc-400 dark:text-zinc-500">
+                    <Calendar size={15} className="text-[#ffaa00]" />
+                    <span>2025 – 2028 (Expected)</span>
+                  </div>
+                  <h4 className="mt-2 font-display text-xl sm:text-2xl font-extrabold text-forest-950 dark:text-white">
+                    Royal University of Phnom Penh (RUPP)
+                  </h4>
+                  <p className="text-sm font-bold text-forest-800 dark:text-[#ffaa00]">
+                    Bachelor in Information Technology Engineering (ITE)
+                  </p>
+                  <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-600 dark:text-zinc-400 font-normal">
+                    Studying core software engineering, algorithms, database systems, web architecture, and AI applications. Active in collaborative engineering projects and tech exploration.
+                  </p>
+                </div>
+
+                {/* Item 2 */}
+                <div className="relative pl-7 before:absolute before:left-0 before:top-2 before:h-3 before:w-3 before:rounded-full before:bg-zinc-300 dark:before:bg-zinc-700">
+                  <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-zinc-400 dark:text-zinc-500">
+                    <Calendar size={15} className="text-[#ffaa00]" />
+                    <span>2018 – 2024</span>
+                  </div>
+                  <h4 className="mt-2 font-display text-xl sm:text-2xl font-extrabold text-forest-950 dark:text-white">
+                    High School Foundation
+                  </h4>
+                  <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400">
+                    High School Diploma • Banlung City
+                  </p>
+                  <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-600 dark:text-zinc-400 font-normal">
+                    Discovered coding and digital technologies. Self-taught web development foundations, logic building, and modern programming through online communities and documentation.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div
-            className={`mt-14 grid gap-10 md:grid-cols-[1.1fr,0.9fr] md:items-start transition-all duration-700 ${
-              inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-            }`}
-          >
-            {/* Timeline */}
-            <div className="relative">
-              <div className="absolute left-4 top-0 hidden h-full w-px bg-gradient-to-b from-accent via-zinc-300 to-transparent md:block dark:via-zinc-700" />
-              <ol className="space-y-8">
-                {experienceTimeline.map((item, index) => (
-                  <li key={item.id} className="relative flex gap-4 md:pl-10" style={{ transitionDelay: `${index * 80}ms` }}>
-                    {/* Node */}
-                    <div className="relative mt-1 hidden md:block">
-                      <div className={`h-9 w-9 rounded-2xl bg-gradient-to-br ${kindColor[item.kind]} shadow-glow shadow-accent/40`} />
-                      <div className="absolute inset-0 rounded-2xl border border-white/60 dark:border-zinc-900/80" />
-                    </div>
+          {/* Column 2: Work Experience Card */}
+          <div className="card-styled flex flex-col justify-between p-8 sm:p-10">
+            <div>
+              {/* Header with Amber Round Icon */}
+              <div className="flex items-center gap-4 border-b border-zinc-100 pb-6 dark:border-zinc-800">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#ffaa00] text-forest-950 shadow-md">
+                  <Briefcase size={26} strokeWidth={2.3} />
+                </div>
+                <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-forest-950 dark:text-white">
+                  Work Experience
+                </h3>
+              </div>
 
-                    {/* Card */}
-                    <div className="card card-hover w-full p-5 md:p-6">
-                      <div className="flex flex-wrap items-center justify-between gap-2">
-                        <span className="inline-flex items-center gap-2 rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
-                          <span className={`h-1.5 w-1.5 rounded-full bg-gradient-to-r ${kindColor[item.kind]}`} />
-                          {kindLabel[item.kind]}
-                        </span>
-                        <span className="font-body text-xs font-medium text-zinc-500 dark:text-zinc-400">
-                          {item.period}
-                        </span>
-                      </div>
-                      <h3 className="font-display mt-3 text-xl leading-none text-zinc-900 dark:text-white">
-                        {item.title}
-                      </h3>
-                      <p className="font-body text-sm font-medium text-zinc-600 dark:text-zinc-300">
-                        {item.place} · {item.location}
-                      </p>
-                      <p className="font-body mt-3 text-sm font-light leading-relaxed text-zinc-600 dark:text-zinc-400">
-                        {item.description}
-                      </p>
-                      <ul className="mt-4 space-y-1.5 text-sm text-zinc-600 dark:text-zinc-300">
-                        {item.highlights.map((h) => (
-                          <li key={h} className="flex gap-2">
-                            <span className="mt-1 h-1 w-3 shrink-0 rounded-full bg-accent" />
-                            <span className="font-body font-light">{h}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </li>
-                ))}
-              </ol>
+              {/* Work Timeline Items */}
+              <div className="mt-8 space-y-9">
+                {/* Item 1 */}
+                <div className="relative pl-7 before:absolute before:left-0 before:top-2 before:h-3 before:w-3 before:rounded-full before:bg-[#ffaa00] before:ring-4 before:ring-[#ffaa00]/25">
+                  <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-zinc-400 dark:text-zinc-500">
+                    <Calendar size={15} className="text-[#ffaa00]" />
+                    <span>2024 – Present</span>
+                  </div>
+                  <h4 className="mt-2 font-display text-xl sm:text-2xl font-extrabold text-forest-950 dark:text-white">
+                    Freelance Full-Stack Developer
+                  </h4>
+                  <p className="text-sm font-bold text-forest-800 dark:text-[#ffaa00]">
+                    Self-Employed • Remote & Local Clients
+                  </p>
+                  <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-600 dark:text-zinc-400 font-normal">
+                    Designing and engineering custom responsive web apps, REST APIs, and modern dashboards. Partnering directly with businesses to translate functional requirements into polished production code.
+                  </p>
+                </div>
+
+                {/* Item 2 */}
+                <div className="relative pl-7 before:absolute before:left-0 before:top-2 before:h-3 before:w-3 before:rounded-full before:bg-zinc-300 dark:before:bg-zinc-700">
+                  <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-zinc-400 dark:text-zinc-500">
+                    <Calendar size={15} className="text-[#ffaa00]" />
+                    <span>2023 – 2024</span>
+                  </div>
+                  <h4 className="mt-2 font-display text-xl sm:text-2xl font-extrabold text-forest-950 dark:text-white">
+                    Web Project Lead & Developer
+                  </h4>
+                  <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400">
+                    Team Projects & E-Commerce Build
+                  </p>
+                  <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-600 dark:text-zinc-400 font-normal">
+                    Led a developer group to engineer a full-featured e-commerce platform with product catalogs, shopping cart flow, database schema, and payment processing.
+                  </p>
+                </div>
+
+                {/* Item 3 */}
+                <div className="relative pl-7 before:absolute before:left-0 before:top-2 before:h-3 before:w-3 before:rounded-full before:bg-zinc-300 dark:before:bg-zinc-700">
+                  <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-zinc-400 dark:text-zinc-500">
+                    <Calendar size={15} className="text-[#ffaa00]" />
+                    <span>2022 – 2023</span>
+                  </div>
+                  <h4 className="mt-2 font-display text-xl sm:text-2xl font-extrabold text-forest-950 dark:text-white">
+                    UI/UX & Frontend Contributor
+                  </h4>
+                  <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400">
+                    Design Systems & Web Interfaces
+                  </p>
+                  <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-600 dark:text-zinc-400 font-normal">
+                    Crafted responsive component systems, brand visual assets, and high-fidelity clickable Figma prototypes for web applications.
+                  </p>
+                </div>
+              </div>
             </div>
-
-            
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }
