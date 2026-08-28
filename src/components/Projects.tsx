@@ -10,7 +10,7 @@ function GitHubIcon({ className }: { className?: string }) {
   )
 }
 
-export type ProjectCategory = 'all' | 'web' | 'app' | 'design'
+export type ProjectCategory = 'all' | 'Ecommerce' | 'System' | 'Cambodia Problems' |'Entertainment'
 
 export interface Project {
   id: string
@@ -31,7 +31,7 @@ export interface Project {
 const projectsData: Project[] = [
   {
     id: '1',
-    category: 'web',
+    category: 'Ecommerce',
     title: 'E-Commerce Platform & Admin',
     subtitle: 'Beauty Product - Ecommerce Mobile & Web App Solution',
     tags: ['Web App', 'Full-Stack'],
@@ -45,92 +45,18 @@ const projectsData: Project[] = [
     liveUrl: 'https://frontend-khmer-book-store.vercel.app/',
     githubUrl: 'https://github.com/henboddy87-blip/Frontend-KhmerBookStore',
   },
-  {
-    id: '2',
-    category: 'app',
-    title: 'Mobile Fitness & Habit Tracker',
-    subtitle: 'Interactive Mobile Application for Health & Workouts',
-    tags: ['UI/UX Design', 'App Design', 'Mobile'],
-    description: 'Cross-platform app for workout planning, routine execution, and health tracking.',
-    longDescription:
-      'A performant cross-platform mobile fitness app that enables users to set fitness goals, follow custom workout routines, track daily progress, and synchronize with health wearables with cloud backup.',
-    image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=800&auto=format&fit=crop',
-    year: '2024',
-    tech: ['React Native', 'TypeScript', 'Firebase', 'Tailwind CSS'],
-    role: 'Mobile & Frontend Engineer',
-    liveUrl: 'https://demo.example.com/fitness-app',
-    githubUrl: 'https://github.com/username/fitness-app',
-  },
-  {
-    id: '3',
-    category: 'design',
-    title: 'Coffee Ordering & Brand Solution',
-    subtitle: 'Coffee Shop App & Mobile Landing Page Design',
-    tags: ['UI/UX Design', 'Wireframe', 'Branding'],
-    description: 'End-to-end visual identity, mobile ordering flow, and high-conversion landing page.',
-    longDescription:
-      'A holistic design system and interactive UI prototype for an artisanal coffee chain. Created cohesive brand guidelines, mobile app user journeys, digital menu ordering, and a high-converting web landing page.',
-    image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800&auto=format&fit=crop',
-    year: '2023',
-    tech: ['Figma', 'Illustrator', 'Design Systems', 'Interactive Prototyping'],
-    role: 'UI/UX & Brand Designer',
-    githubUrl: 'https://github.com/username/brand-assets',
-  },
-  {
-    id: '4',
-    category: 'web',
-    title: 'SaaS Analytics & Operations Dashboard',
-    subtitle: 'Real-time Metrics, Charts, and Multi-tenant Reporting',
-    tags: ['Web Design', 'Dashboard', 'Data Viz'],
-    description: 'Real-time data visualization and operational management console for B2B SaaS.',
-    longDescription:
-      'An enterprise-grade analytics dashboard featuring dynamic filtering, interactive Chart.js/D3 charts, role-based access management, and automated export tools for complex business intelligence reporting.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
-    year: '2023',
-    tech: ['React', 'TypeScript', 'FastAPI', 'Python', 'D3.js', 'PostgreSQL'],
-    role: 'Full-Stack Developer & UI Architect',
-    liveUrl: 'https://demo.example.com/dashboard',
-    githubUrl: 'https://github.com/username/analytics-dashboard',
-  },
-  {
-    id: '5',
-    category: 'app',
-    title: 'Smart Personal Finance Manager',
-    subtitle: 'Expense Tracking & Budget Intelligence Platform',
-    tags: ['Fintech', 'App Design', 'React'],
-    description: 'Personal budgeting with categorization, goal forecasting, and multi-device sync.',
-    longDescription:
-      'A fintech web and mobile application designed to simplify personal accounting. Provides automated expense categorizations, monthly budget targets, recurring subscription alerts, and secure cloud synchronization.',
-    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop',
-    year: '2023',
-    tech: ['React', 'Node.js', 'MySQL', 'Tailwind CSS', 'Chart.js'],
-    role: 'Solo Developer',
-    liveUrl: 'https://demo.example.com/finance-tracker',
-    githubUrl: 'https://github.com/username/finance-tracker',
-  },
-  {
-    id: '6',
-    category: 'design',
-    title: 'Modern Modular Landing Page Kit',
-    subtitle: 'Conversion-Focused Component Library & Design System',
-    tags: ['UI/UX Design', 'Design System', 'Wireframe'],
-    description: 'Modular, high-converting web UI components and design templates.',
-    longDescription:
-      'A comprehensive UI component kit optimized for conversion rate performance. Features 40+ modular sections including responsive navigation, hero variations, pricing tables, testimonials, and interactive contact modules.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
-    year: '2023',
-    tech: ['Figma', 'React', 'Tailwind CSS', 'Storybook'],
-    role: 'UI Designer & Frontend Developer',
-    liveUrl: 'https://demo.example.com/landing-kit',
-    githubUrl: 'https://github.com/username/landing-page-kit',
-  },
+  
+  
+  
+  
 ]
 
 const filterTabs: { value: ProjectCategory; label: string }[] = [
   { value: 'all', label: 'All Projects' },
-  { value: 'web', label: 'Web Development' },
-  { value: 'app', label: 'App Solutions' },
-  { value: 'design', label: 'UI/UX & Design' },
+  { value: 'Ecommerce', label: 'Ecommerce' },
+  { value: 'System', label: ' Systems' },
+  { value: 'Cambodia Problems', label: 'Cambodia Problems' },
+  { value: 'Entertainment', label: 'Entertainment' },
 ]
 
 export function Projects() {

@@ -1,37 +1,78 @@
-import { useInView } from '../hooks/useInView'
-import { Download } from 'lucide-react'
+import { useInView } from "../hooks/useInView";
+import {
+  Download,
+  Sparkles,
+  Code2,
+  Cpu,
+  BarChart3,
+  Terminal,
+  Layers,
+} from "lucide-react";
 
-const siteName = 'Hoeun Sophanut'
+const siteName = "Hoeun Sophanut";
 
 const aboutParagraphs = [
   "I'm an ITE (Information Technology Engineering) student at the Royal University of Phnom Penh, deeply passionate about Web Development, Data engineering, and the AI field. I focus on engineering real-world projects inspired by the rapid evolution of technology and AI innovation.",
-  'My development philosophy centers on building what people truly need—crafting robust codebases and intuitive interfaces that bridge commercial goals with seamless user happiness.',
+  "My development philosophy centers on building what people truly need—crafting robust codebases and intuitive interfaces that bridge commercial goals with seamless user happiness.",
   "As a lifelong learner, I explore modern AI frameworks, scalable web architectures, and deliberate design systems to deliver software that stays ahead of tomorrow's standards.",
-]
+];
 
 const statsData = [
-  { value: '10+', label: 'Projects Completed' },
-  { value: '100%', label: 'Commitment & Quality' },
-  { value: '4+', label: 'Years Coding Journey' },
-]
+  { value: "10+", label: "Projects Completed" },
+  { value: "100%", label: "Commitment & Quality" },
+  { value: "4+", label: "Years Coding Journey" },
+];
 
-/* Orbit skill pills — each gets an angle offset (deg) to space them evenly */
+/* Orbit skill pills in About section — rotating counter-clockwise (opposite direction of Hero) */
 const orbitPills = [
-  { label: 'UI/UX Design', variant: 'dark' as const, startAngle: 0 },
-  { label: 'React & Next.js', variant: 'gold' as const, startAngle: 72 },
-  { label: 'Full-Stack', variant: 'gold' as const, startAngle: 144 },
-  { label: 'Design Systems', variant: 'outline' as const, startAngle: 216 },
-  { label: 'Python & FastAPI', variant: 'dark' as const, startAngle: 288 },
-]
+  {
+    label: "UI/UX Design",
+    icon: Sparkles,
+    variant: "dark" as const,
+    startAngle: 0,
+  },
+  {
+    label: "React & Next.js",
+    icon: Code2,
+    variant: "gold" as const,
+    startAngle: 60,
+  },
+  {
+    label: "Full-Stack & AI",
+    icon: Cpu,
+    variant: "forest" as const,
+    startAngle: 120,
+  },
+  {
+    label: "Data Analysis",
+    icon: BarChart3,
+    variant: "gold" as const,
+    startAngle: 180,
+  },
+  {
+    label: "Python & FastAPI",
+    icon: Terminal,
+    variant: "dark" as const,
+    startAngle: 240,
+  },
+  {
+    label: "Design Systems",
+    icon: Layers,
+    variant: "outline" as const,
+    startAngle: 300,
+  },
+];
 
 const pillStyles = {
-  dark: 'border border-white/20 bg-forest-950/95 text-[#ffaa00] backdrop-blur-md',
-  gold: 'bg-[#ffaa00] text-forest-950 font-extrabold',
-  outline: 'bg-forest-800 text-[#ffaa00] border border-[#ffaa00]/30',
-}
+  dark: "border border-[#ffaa00]/30 bg-forest-950/95 text-white backdrop-blur-md hover:border-[#ffaa00]",
+  gold: "bg-gradient-to-r from-[#ffaa00] to-amber-500 text-forest-950 font-black shadow-lg shadow-[#ffaa00]/30",
+  forest: "bg-forest-800 text-white border border-white/20 backdrop-blur-md",
+  outline:
+    "bg-forest-900/90 text-[#ffaa00] border border-[#ffaa00]/50 backdrop-blur-md",
+};
 
 export function About() {
-  const { ref: sectionRef, inView } = useInView()
+  const { ref: sectionRef, inView } = useInView();
 
   return (
     <section
@@ -49,7 +90,7 @@ export function About() {
           {/* Left Column (50%): Golden Circle Photo + Orbiting Skill Pills */}
           <div
             className={`relative flex justify-center transition-all duration-700 ${
-              inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
             {/* Orbit container — all tags + photo live here */}
@@ -68,34 +109,36 @@ export function About() {
               {/* Subtle dashed orbit ring */}
               <div className="orbit-ring" />
 
-              {/* Orbiting pills */}
+              {/* Orbiting pills moving Counter-Clockwise (opposite direction to Hero) */}
               {orbitPills.map((pill) => {
-                /* Convert start angle to a negative delay so each pill is offset in time */
-                const delaySec = -(pill.startAngle / 360) * 24
+                const delaySec = -(pill.startAngle / 360) * 26;
+                const Icon = pill.icon;
                 return (
                   <div
                     key={pill.label}
-                    className="orbit-pill-wrapper"
+                    className="orbit-pill-wrapper-ccw"
                     style={{ animationDelay: `${delaySec}s` }}
                   >
                     {/* Counter-rotate to keep text upright */}
                     <span
-                      className={`orbit-pill ${pillStyles[pill.variant]}`}
+                      className={`orbit-pill orbit-pill-ccw ${pillStyles[pill.variant]}`}
                       style={{ animationDelay: `${delaySec}s` }}
                     >
-                      {pill.label}
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-black/15 dark:bg-white/15">
+                        <Icon size={12} strokeWidth={2.5} />
+                      </span>
+                      <span>{pill.label}</span>
                     </span>
                   </div>
-                )
+                );
               })}
-
             </div>
           </div>
 
           {/* Right Column (50%): About Info, Expanded Text, Stats & Signature */}
           <div
             className={`transition-all duration-700 delay-150 ${
-              inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
             {/* Section Tag */}
@@ -156,5 +199,5 @@ export function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }

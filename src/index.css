@@ -5,20 +5,22 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
   }
   body {
-    background-color: #FAFBFB;
+    background-color: #fafbfb;
     color: #18181b;
     -webkit-font-smoothing: antialiased;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
   html.dark body,
   .dark body {
-    background-color: #0B1710;
+    background-color: #0b1710;
     color: #f4f4f5;
   }
-  
+
   ::selection {
     background-color: #ffaa00;
     color: #143826;
@@ -44,7 +46,7 @@
   }
   html.dark .section-dark,
   .dark .section-dark {
-    background-color: #08170F;
+    background-color: #08170f;
   }
 
   .container-custom {
@@ -299,53 +301,58 @@
   }
 
   /* ─────────────────────────────────────────────
-     ORBIT ANIMATION — About Section Photo Ring
+     ORBIT ANIMATIONS — Hero (CW) & About (CCW)
      ───────────────────────────────────────────── */
 
-  /* The overall orbit area — sized to fit the photo + orbit radius */
+  /* The overall orbit area — responsive square container */
   .orbit-container {
     position: relative;
-    width: 420px;
-    height: 420px;
+    width: 330px;
+    height: 330px;
+    margin-left: auto;
+    margin-right: auto;
   }
   @media (min-width: 640px) {
     .orbit-container {
-      width: 480px;
-      height: 480px;
+      width: 440px;
+      height: 440px;
     }
   }
   @media (min-width: 1024px) {
     .orbit-container {
-      width: 530px;
-      height: 530px;
+      width: 500px;
+      height: 500px;
     }
   }
 
-  /* Gold bordered photo in the center */
+  /* Centered circular portrait photo */
   .orbit-photo {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 260px;
-    height: 260px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #ffaa00, #e69500);
+    background: linear-gradient(135deg, #ffaa00, #f09a00);
     padding: 6px;
-    box-shadow: 0 0 40px rgba(255, 170, 0, 0.25), 0 8px 32px rgba(0, 0, 0, 0.2);
+    box-shadow:
+      0 0 40px rgba(255, 170, 0, 0.3),
+      0 8px 32px rgba(0, 0, 0, 0.2);
     z-index: 10;
+    transition: transform 0.5s ease;
   }
   @media (min-width: 640px) {
     .orbit-photo {
-      width: 300px;
-      height: 300px;
+      width: 280px;
+      height: 280px;
       padding: 7px;
     }
   }
   @media (min-width: 1024px) {
     .orbit-photo {
-      width: 340px;
-      height: 340px;
+      width: 330px;
+      height: 330px;
       padding: 8px;
     }
   }
@@ -355,76 +362,108 @@
     height: 100%;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid #0b2116;
+    border: 3.5px solid #ffffff;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  html.dark .orbit-photo-inner,
+  .dark .orbit-photo-inner {
+    border-color: #0b2116;
   }
 
-  /* Subtle dashed orbit ring */
+  /* Orbit dashed decorative guide ring */
   .orbit-ring {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 380px;
-    height: 380px;
+    width: 280px;
+    height: 280px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    border: 1.5px dashed rgba(255, 170, 0, 0.18);
+    border: 1.5px dashed rgba(255, 170, 0, 0.28);
     pointer-events: none;
     z-index: 5;
   }
   @media (min-width: 640px) {
     .orbit-ring {
-      width: 430px;
-      height: 430px;
+      width: 370px;
+      height: 370px;
     }
   }
   @media (min-width: 1024px) {
     .orbit-ring {
-      width: 480px;
-      height: 480px;
+      width: 430px;
+      height: 430px;
     }
   }
 
-  /* Each pill wrapper sits at center, rotates around it */
-  .orbit-pill-wrapper {
+  /* Base Pill Styling */
+  .orbit-pill {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    border-radius: 9999px;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.725rem;
+    font-weight: 700;
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.18),
+      0 0 14px rgba(255, 170, 0, 0.15);
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      filter 0.25s ease;
+    cursor: pointer;
+    user-select: none;
+    transform: translate(-50%, -50%) translateY(-140px);
+  }
+  @media (min-width: 640px) {
+    .orbit-pill {
+      padding: 0.55rem 1.1rem;
+      font-size: 0.825rem;
+      transform: translate(-50%, -50%) translateY(-185px);
+    }
+  }
+  @media (min-width: 1024px) {
+    .orbit-pill {
+      padding: 0.6rem 1.25rem;
+      font-size: 0.875rem;
+      transform: translate(-50%, -50%) translateY(-215px);
+    }
+  }
+  .orbit-pill:hover {
+    filter: brightness(1.1);
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, 0.25),
+      0 0 20px rgba(255, 170, 0, 0.35);
+  }
+
+  /* Pause orbit on hover for better UX and clickability */
+  .orbit-container:hover .orbit-pill-wrapper-cw,
+  .orbit-container:hover .orbit-pill-cw,
+  .orbit-container:hover .orbit-pill-wrapper-ccw,
+  .orbit-container:hover .orbit-pill-ccw {
+    animation-play-state: paused;
+  }
+
+  /* ───────────────────────────
+     CLOCKWISE (CW) — Hero Section
+     ─────────────────────────── */
+  .orbit-pill-wrapper-cw {
     position: absolute;
     top: 50%;
     left: 50%;
     width: 0;
     height: 0;
     z-index: 20;
-    animation: orbitSpin 24s linear infinite;
+    animation: orbitSpinCW 26s linear infinite;
+  }
+  .orbit-pill-cw {
+    animation: orbitCounterSpinCW 26s linear infinite;
   }
 
-  /* The pill itself: translated outward by the orbit radius, then counter-rotated */
-  .orbit-pill {
-    position: absolute;
-    white-space: nowrap;
-    border-radius: 9999px;
-    padding: 0.5rem 1rem;
-    font-size: 0.7rem;
-    font-weight: 700;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 12px rgba(255, 170, 0, 0.12);
-    transform: translate(-50%, -50%) translateY(-190px);
-    animation: orbitCounterSpin 24s linear infinite;
-    letter-spacing: 0.03em;
-  }
-  @media (min-width: 640px) {
-    .orbit-pill {
-      font-size: 0.8rem;
-      padding: 0.55rem 1.15rem;
-      transform: translate(-50%, -50%) translateY(-215px);
-    }
-  }
-  @media (min-width: 1024px) {
-    .orbit-pill {
-      font-size: 0.85rem;
-      padding: 0.6rem 1.25rem;
-      transform: translate(-50%, -50%) translateY(-240px);
-    }
-  }
-
-  /* The main orbit rotation — full 360° loop */
-  @keyframes orbitSpin {
+  @keyframes orbitSpinCW {
     from {
       transform: translate(-50%, -50%) rotate(0deg);
     }
@@ -433,17 +472,26 @@
     }
   }
 
-  /* Counter-rotation to keep pill text always upright */
-  @keyframes orbitCounterSpin {
+  @keyframes orbitCounterSpinCW {
     from {
-      transform: translate(-50%, -50%) translateY(-190px) rotate(0deg);
+      transform: translate(-50%, -50%) translateY(-140px) rotate(0deg);
     }
     to {
-      transform: translate(-50%, -50%) translateY(-190px) rotate(-360deg);
+      transform: translate(-50%, -50%) translateY(-140px) rotate(-360deg);
     }
   }
   @media (min-width: 640px) {
-    @keyframes orbitCounterSpin {
+    @keyframes orbitCounterSpinCW {
+      from {
+        transform: translate(-50%, -50%) translateY(-185px) rotate(0deg);
+      }
+      to {
+        transform: translate(-50%, -50%) translateY(-185px) rotate(-360deg);
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    @keyframes orbitCounterSpinCW {
       from {
         transform: translate(-50%, -50%) translateY(-215px) rotate(0deg);
       }
@@ -452,13 +500,57 @@
       }
     }
   }
-  @media (min-width: 1024px) {
-    @keyframes orbitCounterSpin {
+
+  /* ───────────────────────────
+     COUNTER-CLOCKWISE (CCW) — About Section
+     ─────────────────────────── */
+  .orbit-pill-wrapper-ccw {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    z-index: 20;
+    animation: orbitSpinCCW 26s linear infinite;
+  }
+  .orbit-pill-ccw {
+    animation: orbitCounterSpinCCW 26s linear infinite;
+  }
+
+  @keyframes orbitSpinCCW {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+  }
+
+  @keyframes orbitCounterSpinCCW {
+    from {
+      transform: translate(-50%, -50%) translateY(-140px) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) translateY(-140px) rotate(360deg);
+    }
+  }
+  @media (min-width: 640px) {
+    @keyframes orbitCounterSpinCCW {
       from {
-        transform: translate(-50%, -50%) translateY(-240px) rotate(0deg);
+        transform: translate(-50%, -50%) translateY(-185px) rotate(0deg);
       }
       to {
-        transform: translate(-50%, -50%) translateY(-240px) rotate(-360deg);
+        transform: translate(-50%, -50%) translateY(-185px) rotate(360deg);
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    @keyframes orbitCounterSpinCCW {
+      from {
+        transform: translate(-50%, -50%) translateY(-215px) rotate(0deg);
+      }
+      to {
+        transform: translate(-50%, -50%) translateY(-215px) rotate(360deg);
       }
     }
   }
