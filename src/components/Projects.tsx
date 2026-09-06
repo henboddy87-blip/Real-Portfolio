@@ -45,10 +45,54 @@ const projectsData: Project[] = [
     liveUrl: 'https://frontend-khmer-book-store.vercel.app/',
     githubUrl: 'https://github.com/henboddy87-blip/Frontend-KhmerBookStore',
   },
-  
-  
-  
-  
+  {
+    id: '2',
+    category: 'Ecommerce',
+    title: 'E-Commerce Store & Admin Panel',
+    subtitle: 'Fashion Product for all overall men, women, and kid',
+    tags: ['Web App', 'Full-Stack'],
+    description: 'Full-stack store with dynamic cart, secure checkout, and comprehensive admin dashboard.',
+    longDescription:
+      'A scalable e-commerce platform designed for modern online merchants. Includes a high-conversion catalog, seamless cart management, and a real-time analytics dashboard for orders and inventory management.',
+    image: './project/fashion.png',
+    year: '2026',
+    tech: ['React', 'TypeScript', 'Python FastAPI', 'SQLite', 'Tailwind CSS ', 'Vercel', 'Render', 'Github'],
+    role: 'Lead Full-Stack Developer',
+    liveUrl: 'https://frontend-fashion-store.vercel.app',
+    githubUrl: 'https://github.com/henboddy87-blip/Frontend-Fashion-Store',
+  },
+  {
+    id: '3',
+    category: 'Ecommerce',
+    title: 'CamTech Computer Store',
+    subtitle: 'Full-Stack E-Commerce Platform for Computer Hardware & Accessories',
+    tags: ['Web App', 'Full-Stack'],
+    description: 'CamTech Computer Store is a modern full-stack e-commerce web application for buying laptops, desktops, PC components, and accessories online.',
+    longDescription:
+      'The storefront is built with React, TypeScript, Vite, Tailwind CSS, offering a fast and responsive shopping experience with product browsing, cart, and checkout flows. A dedicated React admin dashboard lets store owners manage products, categories, orders, and inventory, while the backend — a Python FastAPI service with a SQL database — provides secure REST APIs, authentication, and file upload handling. The project is organized as a monorepo with three independent apps',
+    image: './project/computer-store.png',
+    year: '2026',
+    tech: ['React', 'TypeScript', 'Python FastAPI', 'SQLite', 'Tailwind CSS ', 'Vercel', 'Render', 'Github'],
+    role: 'Lead Full-Stack Developer',
+    liveUrl: 'https://frontend-computer-store.vercel.app',
+    githubUrl: 'https://github.com/henboddy87-blip/Frontend-Computer-Store',
+  },
+  {
+    id: '4',
+    category: 'Entertainment',
+    title: 'Entertainment Music Streaming & Admin Panl control',
+    subtitle: 'Music Streaming App & Admin Panel Control',
+    tags: ['Web App', 'Full-Stack'],
+    description: 'Full-stack music streaming dashboard, multiple songs, artist, favourite listing and upload own song created to platform.',
+    longDescription:
+      'A scalable music streaming platform designed for modern online users. Includes a seamless manage song, artists, favourite and upload own song created to platform.',
+    image: './project/music.png',
+    year: '2026',
+    tech: ['React', 'TypeScript', 'Python FastAPI', 'SQLite', 'Tailwind CSS ', 'Vercel', 'Render', 'Github'],
+    role: 'Lead Full-Stack Developer',
+    liveUrl: 'https://frontend-music-streaming.vercel.app',
+    githubUrl: 'https://github.com/henboddy87-blip/Frontend-Music-Listener',
+  },
 ]
 
 const filterTabs: { value: ProjectCategory; label: string }[] = [

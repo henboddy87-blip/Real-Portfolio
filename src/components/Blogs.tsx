@@ -24,19 +24,19 @@ const blogsData: BlogPost[] = [
     excerpt:
       'Key architectural patterns, state management strategies, and database optimization techniques for production-ready applications.',
     content:
-      'Modern web application architecture requires a delicate balance between rapid feature delivery and long-term maintainability. By structuring decoupled frontend components, writing type-safe API boundaries with TypeScript, and enforcing solid database indexing strategies, teams can scale to thousands of daily active users without incurring massive technical debt.',
+      'Modern web application architecture requires a delicate balance between rapid feature delivery and long-term maintainability. By structuring frontend components, writing type-safe API boundaries with TypeScript, and enforcing solid database indexing strategies, teams can scale to thousands of daily active users without incurring massive technical issues.',
   },
   {
     id: '2',
-    title: 'Modern UI/UX Design: Building Clean, Accessible & Deliberate Dashboard Interfaces',
+    title: 'Modern UI/UX Design: Building Clean, friendly responsive Dashboard Interfaces',
     category: 'UI/UX Design',
     date: '2026',
     readTime: '4 min read',
     image: './blog/UI.png',
     excerpt:
-      'How consistent spacing, intentional typography hierarchy, and subtle micro-interactions transform ordinary websites into unforgettable digital experiences.',
+      'Financial Management System, let everybody track their expenses and income with daily, monthly spending. Create finance goal to archieve to specific period.',
     content:
-      'Great design is invisible—it guides users effortlessly through complex workflows without causing cognitive fatigue. In this guide, we dive into establishing modular design tokens, crafting harmonious color palettes with deep contrast ratios, and utilizing micro-animations to give web applications a tactile, responsive feel.',
+      'Financial Management System is a comprehensive tool designed to help individuals take control of their personal finances. It provides an intuitive platform for users to monitor their daily expenses and track income streams, offering valuable insights into their spending habits. With features like personalized budgets, savings goals, and automated reports, the system empowers users to make informed financial decisions, save more effectively, and achieve their long-term financial objectives with confidence.',
   },
   {
     id: '3',
@@ -187,7 +187,7 @@ export function Blogs() {
               </p>
               <p>{activePost.content}</p>
               <p>
-                As development practices advance, combining solid engineering fundamentals with intuitive user experience guarantees longevity and high performance for digital products.
+                As development of technology advances, Using AI will be much faster to our workspace, time and reducing over rework. Boost productivity and improving performance for digital products.
               </p>
             </div>
 

@@ -5,18 +5,18 @@ const skillCategories = [
     title: 'Frontend & UI Engineering',
     iconImage: '/image/frontend.png',
     items: [
-      { name: 'React / Next.js', level: 92 },
-      { name: 'TypeScript / JavaScript', level: 90 },
-      { name: 'Tailwind CSS / HTML5', level: 95 },
+      { name: 'React', level: 70 },
+      { name: 'TypeScript / JavaScript', level: 70 },
+      { name: 'Tailwind CSS / HTML5', level: 75 },
     ],
   },
   {
     title: 'Backend & Systems',
     iconImage: '/image/backend.png',
     items: [
-      { name: 'Python / FastAPI', level: 82 },
-      { name: 'MySQL & PostgreSQL', level: 80 },
-      { name: 'REST APIs & Cloud Deployment', level: 88 },
+      { name: 'Python / FastAPI', level: 75 },
+      { name: 'MySQL & PostgreSQL', level: 75 },
+      { name: 'REST APIs & Cloud Deployment', level: 70 },
     ],
   },
 ]

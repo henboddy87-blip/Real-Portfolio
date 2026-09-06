@@ -210,9 +210,9 @@ export function Contact() {
                     className="contact-input"
                   >
                     <option value="web-dev">Web Application Development</option>
-                    <option value="ui-ux">UI/UX &amp; Product Design</option>
+                    <option value="data-analytics">Data Analytics &amp; Exploration</option>
                     <option value="mobile">Mobile Application Development</option>
-                    <option value="ai">AI Integration &amp; Automation</option>
+                    <option value="ai">AI Integration &amp; Exploration</option>
                     <option value="consulting">Technical Consulting</option>
                   </select>
                 </div>

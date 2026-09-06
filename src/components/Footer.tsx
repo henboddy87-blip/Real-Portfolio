@@ -130,7 +130,7 @@ export function Footer() {
             </div>
 
             <p className="mt-4 max-w-md text-sm sm:text-base leading-relaxed text-zinc-600 dark:text-zinc-400 font-normal">
-              Full-Stack Developer &amp; UI/UX specialist dedicated to engineering delightful, robust, and conversion-focused web solutions.
+              Full-Stack Developer & Data Analyst focused on building intelligent and efficient web solutions.
             </p>
 
             {/* Pure Original Brand Logos without background wrappers */}

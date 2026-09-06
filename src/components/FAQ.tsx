@@ -13,7 +13,7 @@ const faqsData: FAQItem[] = [
     id: '1',
     question: 'What services do you offer as a developer and designer?',
     answer:
-      'I specialize in full-stack web application development (React, Next.js, TypeScript, Node.js, Python/FastAPI), UI/UX design (wireframing, prototyping, design systems in Figma), and AI workflow integrations. I handle projects from early conceptualization to full deployment.',
+      'I specialize in full-stack web application development (React, TypeScript, Python/FastAPI) and AI workflow integrations. I handle projects from early conceptualization to full deployment.',
   },
   {
     id: '2',
@@ -23,7 +23,7 @@ const faqsData: FAQItem[] = [
   },
   {
     id: '3',
-    question: 'Are you available for freelance design & development work?',
+    question: 'Are you available for freelance & development work?',
     answer:
       'Yes, I am actively open to freelance contracts, consulting, and full-time remote opportunities. Whether you need a brand-new web platform or want to revamp an existing product, feel free to reach out!',
   },
@@ -31,7 +31,7 @@ const faqsData: FAQItem[] = [
     id: '4',
     question: 'What tech stack and tools do you use for your work?',
     answer:
-      'For frontend: React, Next.js, TypeScript, Tailwind CSS. For backend: Node.js, Express, Python, FastAPI, PostgreSQL, and MySQL. For design: Figma, Illustrator, and component design systems. For deployment: Vercel, Docker, Git, and cloud infrastructure.',
+      'For frontend: React, TypeScript, Tailwind CSS. For backend: Python, FastAPI, PostgreSQL. For deployment: Vercel, Docker, Gi, Render.',
   },
   {
     id: '5',

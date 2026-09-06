@@ -20,7 +20,7 @@ const aboutParagraphs = [
 const statsData = [
   { value: "10+", label: "Projects Completed" },
   { value: "100%", label: "Commitment & Quality" },
-  { value: "4+", label: "Years Coding Journey" },
+  { value: "2+", label: "Years Coding Journey" },
 ];
 
 /* Orbit skill pills in About section — rotating counter-clockwise (opposite direction of Hero) */
@@ -32,7 +32,7 @@ const orbitPills = [
     startAngle: 0,
   },
   {
-    label: "React & Next.js",
+    label: "React",
     icon: Code2,
     variant: "gold" as const,
     startAngle: 60,

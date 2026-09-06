@@ -79,7 +79,7 @@ export function Experience() {
                     High School Diploma • Banlung City
                   </p>
                   <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-600 dark:text-zinc-400 font-normal">
-                    Discovered coding and digital technologies. Self-taught web development foundations, logic building, and modern programming through online communities and documentation.
+                    Discovered digital technologies. Learning and Listening about tech through online communities and documentation.
                   </p>
                 </div>
               </div>
@@ -105,52 +105,22 @@ export function Experience() {
                 <div className="relative pl-7 before:absolute before:left-0 before:top-2 before:h-3 before:w-3 before:rounded-full before:bg-[#ffaa00] before:ring-4 before:ring-[#ffaa00]/25">
                   <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-zinc-400 dark:text-zinc-500">
                     <Calendar size={15} className="text-[#ffaa00]" />
-                    <span>2024 – Present</span>
+                    <span>2025 – Present</span>
                   </div>
                   <h4 className="mt-2 font-display text-xl sm:text-2xl font-extrabold text-forest-950 dark:text-white">
-                    Freelance Full-Stack Developer
+                    Learning and Building multiple project Full-Stack Web apps
                   </h4>
                   <p className="text-sm font-bold text-forest-800 dark:text-[#ffaa00]">
-                    Self-Employed • Remote & Local Clients
+                    Self-learning
                   </p>
                   <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-600 dark:text-zinc-400 font-normal">
                     Designing and engineering custom responsive web apps, REST APIs, and modern dashboards. Partnering directly with businesses to translate functional requirements into polished production code.
                   </p>
                 </div>
 
-                {/* Item 2 */}
-                <div className="relative pl-7 before:absolute before:left-0 before:top-2 before:h-3 before:w-3 before:rounded-full before:bg-zinc-300 dark:before:bg-zinc-700">
-                  <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-zinc-400 dark:text-zinc-500">
-                    <Calendar size={15} className="text-[#ffaa00]" />
-                    <span>2023 – 2024</span>
-                  </div>
-                  <h4 className="mt-2 font-display text-xl sm:text-2xl font-extrabold text-forest-950 dark:text-white">
-                    Web Project Lead & Developer
-                  </h4>
-                  <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400">
-                    Team Projects & E-Commerce Build
-                  </p>
-                  <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-600 dark:text-zinc-400 font-normal">
-                    Led a developer group to engineer a full-featured e-commerce platform with product catalogs, shopping cart flow, database schema, and payment processing.
-                  </p>
-                </div>
+                
 
-                {/* Item 3 */}
-                <div className="relative pl-7 before:absolute before:left-0 before:top-2 before:h-3 before:w-3 before:rounded-full before:bg-zinc-300 dark:before:bg-zinc-700">
-                  <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-zinc-400 dark:text-zinc-500">
-                    <Calendar size={15} className="text-[#ffaa00]" />
-                    <span>2022 – 2023</span>
-                  </div>
-                  <h4 className="mt-2 font-display text-xl sm:text-2xl font-extrabold text-forest-950 dark:text-white">
-                    UI/UX & Frontend Contributor
-                  </h4>
-                  <p className="text-sm font-bold text-zinc-500 dark:text-zinc-400">
-                    Design Systems & Web Interfaces
-                  </p>
-                  <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-600 dark:text-zinc-400 font-normal">
-                    Crafted responsive component systems, brand visual assets, and high-fidelity clickable Figma prototypes for web applications.
-                  </p>
-                </div>
+                
               </div>
             </div>
           </div>
