@@ -90,7 +90,7 @@ const projectsData: Project[] = [
     year: '2026',
     tech: ['React', 'TypeScript', 'Python FastAPI', 'SQLite', 'Tailwind CSS ', 'Vercel', 'Render', 'Github'],
     role: 'Lead Full-Stack Developer',
-    liveUrl: 'https://frontend-music-streaming.vercel.app',
+    liveUrl: 'https://frontend-music-listener.vercel.app',
     githubUrl: 'https://github.com/henboddy87-blip/Frontend-Music-Listener',
   },
 ]
