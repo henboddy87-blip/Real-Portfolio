@@ -93,6 +93,22 @@ const projectsData: Project[] = [
     liveUrl: 'https://frontend-music-listener.vercel.app',
     githubUrl: 'https://github.com/henboddy87-blip/Frontend-Music-Listener',
   },
+  {
+    id: '5',
+    category: 'Entertainment',
+    title: 'KhmerCine',
+    subtitle: 'Khmer cinema meets the world. Discover, stream, and love films from every corner of the globe.',
+    tags: ['Web App', 'Full-Stack'],
+    description: 'KHMERCINE is your premier destination for Khmer and world cinema — discover, explore, and enjoy movies and series from every corner of the globe.',
+    longDescription:
+      'KHMERCINE is a modern streaming experience built for film lovers. Browse top-rated films across __Khmer, K-Drama, C-Drama, and Hollywood__, organized by genre, year, and trending picks. Watch HD trailers and episodes with adaptive quality, build your watchlist, and jump straight into the next great story — all in one beautifully cinematic, fully responsive app that feels just as good on your phone as on the big screen.',
+    image: './project/movie.png',
+    year: '2026',
+    tech: ['React', 'TypeScript', 'Python FastAPI', 'SQLite', 'Tailwind CSS ', 'Vercel', 'Render', 'Github'],
+    role: 'Lead Full-Stack Developer',
+    liveUrl: 'https://frontend-movie-khmer-cine.vercel.app',
+    githubUrl: 'https://github.com/henboddy87-blip/Frontend-Movie-KhmerCine',
+  },
 ]
 
 const filterTabs: { value: ProjectCategory; label: string }[] = [
