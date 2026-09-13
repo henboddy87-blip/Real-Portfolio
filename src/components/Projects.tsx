@@ -173,6 +173,38 @@ const projectsData: Project[] = [
     liveUrl: 'https://admin-university-system-five.vercel.app/login',
     githubUrl: 'https://github.com/henboddy87-blip/Admin-University-System',
   },
+  {
+    id: '10',
+    category: 'Cambodia Problems',
+    title: 'KhmerRescue: Nationwide Community Emergency & Incident Response Grid',
+    subtitle: 'Connect citizens with emergency response teams to report, verify, and resolve emergencies in a timely manner.',
+    tags: ['Web App', 'Full-Stack'],
+    description: 'KhmerRescue is a real-time,  (Khmer/English) language supported emergency response and civic hazard platform designed for Cambodia.',
+    longDescription:
+      'It empowers citizens to report floods, fires, accidents, and hazards with geolocation and photo evidence, while providing emergency operators and field responders with an AI-assisted command dashboard for triage, verification, and live tactical dispatch.',
+    image: './project/khmerrescue.png',
+    year: '2026',
+    tech: ['React', 'TypeScript', 'Python FastAPI', 'SQLite', 'Tailwind CSS ', 'Vercel', 'Render', 'Github'],
+    role: 'Lead Full-Stack Developer',
+    liveUrl: 'https://frontend-khmer-rescue.vercel.app',
+    githubUrl: 'https://github.com/henboddy87-blip/Frontend-KhmerRescue',
+  },
+  {
+    id: '11',
+    category: 'Cambodia Problems',
+    title: ' FarmConnect — Direct Farmer-to-Buyer Digital Agricultural Marketplace',
+    subtitle: 'Empowering local farmers through direct digital trade, transparent market pricing, and secure escrow payments.',
+    tags: ['Web App', 'Full-Stack'],
+    description: "FarmConnect is an agricultural marketplace platform designed to bridge the gap between rural farmers and commercial buyers (restaurants, supermarkets, hotels, and retail consumers) across Cambodia's 25 provinces",
+    longDescription:
+      'By removing exploitative intermediaries, FarmConnect enables farmers to list fresh harvests, receive fair market prices, and manage orders with integrated digital wallets and Bakong KHQR payments. Buyers enjoy direct-from-farm traceability, bulk procurement RFQs, and secure escrow transactions, backed by a real-time negotiation chat and full bilingual support in English and Khmer.',
+    image: './project/farmconnect.png',
+    year: '2026',
+    tech: ['React', 'TypeScript', 'Python FastAPI', 'SQLite', 'Tailwind CSS ', 'Vercel', 'Render', 'Github'],
+    role: 'Lead Full-Stack Developer',
+    liveUrl: 'https://frontend-farm-connect.vercel.app',
+    githubUrl: 'https://github.com/henboddy87-blip/Frontend-FarmConnect',
+  },
 ]
 
 const filterTabs: { value: ProjectCategory; label: string }[] = [
